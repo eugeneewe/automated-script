@@ -1,0 +1,16 @@
+option echo off 
+option batch on 
+option confirm off 
+open sftp://username@server-ip -privatekey=%PPK% -password=%PASSWORD%
+
+#Change LOCAL directory 
+#Rmb to create this folder path for SFTP file transfer
+lcd "C:\Data\Invoice"
+
+#Change REMOTE directory
+cd "/Invoice/"
+
+#Download the all the file behind have PDF
+get *.pdf -nopreservetime -resumesupport=on
+
+exit
